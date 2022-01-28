@@ -34,7 +34,11 @@ public class MarkdownParse {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = getLinks(contents);
-        System.out.println(links);
-        System.out.println("Hello");
+        if (links.size()==0) {
+            System.out.println("Please choose a file with a link");
+        }
+        else {
+            System.out.println(links);
+        }
     }
 }
