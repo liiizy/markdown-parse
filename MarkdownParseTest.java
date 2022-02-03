@@ -10,11 +10,6 @@ public class MarkdownParseTest {
     public void addition() {
     assertEquals(2, 1 + 1);
     }
-
-    @Test
-    public void addition2() {
-        assertEquals(3, 2 + 1);
-    }
     
     @Test
     public void getLinks() throws IOException {
@@ -44,6 +39,14 @@ public class MarkdownParseTest {
     @Test
     public void getLinks4() throws IOException {
         Path fileName = Path.of("breaking-test_3.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertEquals(0, links.size());
+    }
+
+    @Test
+    public void getLinks5() throws IOException {
+        Path fileName = Path.of("breaking-test_4.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         assertEquals(0, links.size());
